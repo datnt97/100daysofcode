@@ -14,15 +14,18 @@ do
 		case "1":
 			RegisterAnEmployee();
 			break;
+
 		case "2":
 			RegisterWork();
 			break;
+
 		case "3":
 			PayEmployee();
 			break;
 
-		case "quite":
+		case "quit":
 			break;
+
 		default:
 			Console.WriteLine("Invalid selection. Please try again!");
 			break;
@@ -53,25 +56,20 @@ public static partial class Program
 
 	static void PayEmployee()
 	{
-		throw new NotImplementedException();
+		Employee employeeSelected = SelectEmployee();
+		employeeSelected.RecieveWage();
+
+		Console.WriteLine($"Thank you for work!");
 	}
 
 	static void RegisterWork()
 	{
-		// TODO: Ensure have employee
-		Console.WriteLine("Select an employee");
-		ShowAllEmployees();
-
-		var userSelection = Console.ReadLine();
-		// TODO: Validate user selection
-		int userSelectionId = int.Parse(userSelection);
-		int employeeId = userSelectionId - DIFFERENCE_INDEX;
+		Employee employee = SelectEmployee();
 
 		Console.Write("Enter the number of hours to work: ");
 		int hoursWorked = int.Parse(Console.ReadLine());
 		// TODO: Validate hours worked
 
-		Employee employee = employees[employeeId];
 		employee.PerformWork(hoursWorked);
 
 		Console.WriteLine($"Now, {employee.FullName} has worked {employee.NumberOfHoursWorked}");
@@ -114,11 +112,27 @@ public static partial class Program
 		Console.WriteLine("********************");
 		Console.ForegroundColor = ConsoleColor.White;
 	}
+
 	static void ShowSelectionOfActions()
 	{
 		Console.WriteLine("Enter 1: Register an employyee");
 		Console.WriteLine("Enter 2: Register work hours of employee");
 		Console.WriteLine("Enter 3: Paid employee");
 		Console.WriteLine("Enter 'quit': Quit application");
+	}
+
+	static Employee SelectEmployee()
+	{
+		// TODO: Ensure have employee
+		Console.WriteLine("Select an employee");
+		ShowAllEmployees();
+
+		var userSelection = Console.ReadLine();
+		// TODO: Validate user selection
+		int userSelectionId = int.Parse(userSelection);
+		int employeeId = userSelectionId - DIFFERENCE_INDEX;
+		Employee employee = employees[employeeId];
+
+		return employee;
 	}
 }
