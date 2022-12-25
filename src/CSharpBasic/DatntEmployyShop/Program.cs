@@ -1,41 +1,62 @@
-﻿ShowTitle();
+﻿//ExecuteDntApplication();
+ExecuteInheritance();
 
-string userSelection;
-
-do
+static void ExecuteInheritance()
 {
-	ShowActionTitle();
-	ShowSelectionOfActions();
-
-	userSelection = Console.ReadLine();
-
-	switch (userSelection)
+	List<Employee> employees = new List<Employee>()
 	{
-		case "1":
-			RegisterAnEmployee();
-			break;
+		new Employee("Emp", "loem", 10.00),
+		new Manager("Manager", "loma", 100.00)
+	};
 
-		case "2":
-			RegisterWork();
-			break;
-
-		case "3":
-			PayEmployee();
-			break;
-
-		case "quit":
-			break;
-
-		default:
-			Console.WriteLine("Invalid selection. Please try again!");
-			break;
+	foreach (var e in employees)
+	{
+		e.PerformWork(8);
+		e.RecieveWage();
+		Console.WriteLine();
 	}
 }
-while (userSelection != "quit");
 
+static void ExecuteDntApplication()
+{
+	ShowTitle();
 
-Console.WriteLine("Thank you for using this application!");
-Console.ReadLine();
+	string userSelection;
+
+	do
+	{
+		ShowActionTitle();
+		ShowSelectionOfActions();
+
+		userSelection = Console.ReadLine();
+
+		switch (userSelection)
+		{
+			case "1":
+				RegisterAnEmployee();
+				break;
+
+			case "2":
+				RegisterWork();
+				break;
+
+			case "3":
+				PayEmployee();
+				break;
+
+			case "quit":
+				break;
+
+			default:
+				Console.WriteLine("Invalid selection. Please try again!");
+				break;
+		}
+	}
+	while (userSelection != "quit");
+
+	Console.WriteLine("Thank you for using this application!");
+	Console.ReadLine();
+}
 
 public static partial class Program
 {
