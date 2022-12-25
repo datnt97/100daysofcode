@@ -5,14 +5,26 @@ static void ExecuteInheritance()
 {
 	List<Employee> employees = new List<Employee>()
 	{
-		new Employee("Emp", "loem", 10.00),
-		new Manager("Manager", "loma", 100.00)
+		new Employee(10, "Emp", "loem", 10.00),
+		new Manager(100,"Manager", "loma", 100.00),
+		new Manager(444,"Manager", "loma", 100.00),
+		new Manager(1,"Manager", "loma", 100.00),
+		new Manager(3,"Manager", "loma", 100.00),
+		new Manager(999,"Manager", "loma", 100.00),
+		new Manager(10000,"Manager", "loma", 100.00),
+		new Manager(654,"Manager", "loma", 100.00),
 	};
 
+	employees.Sort();
+
+	var firstManager = new Manager(1,"Manager", "First", 100.00);
 	foreach (var e in employees)
 	{
-		e.PerformWork(8);
-		e.RecieveWage();
+		//e.PerformWork(8);
+		e.ReceiveWage();
+		//e.ReceiveCompliment();
+		Console.WriteLine(e.CompareTo(firstManager));
+
 		Console.WriteLine();
 	}
 }
@@ -78,7 +90,7 @@ public static partial class Program
 	static void PayEmployee()
 	{
 		Employee employeeSelected = SelectEmployee();
-		employeeSelected.RecieveWage();
+		employeeSelected.ReceiveWage();
 
 		Console.WriteLine($"Thank you for work!");
 	}
@@ -111,7 +123,7 @@ public static partial class Program
 		Console.Write("Enter hourly rate: ");
 		var rate = double.Parse(Console.ReadLine());
 
-		var employee = new Employee(firstName, lastName, rate);
+		var employee = new Employee(0, firstName, lastName, rate);
 		employees.Add(employee);
 
 		Console.WriteLine("Employee created!\n\n");

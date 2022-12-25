@@ -1,14 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Reflection.Emit;
+﻿using DatntEmployyShop.HR;
 
-public class Employee
+public class Employee : IEmployee, IComparable
 {
+	private int id;
 	private string firstName;
 	private string lastName;
 
 	private int numberOfHoursWorked;
 	private double wage;
 	private double hourlyRate;
+
+	public int Id
+	{
+		get => id;
+		set => id = value;
+	}
 
 	public string FirstName
 	{
@@ -54,8 +60,9 @@ public class Employee
 
 	public string FullName => $"{firstName} {lastName}";
 
-	public Employee(string firstName, string lastName, double hourlyRate)
+	public Employee(int id, string firstName, string lastName, double hourlyRate)
 	{
+		Id = id;
 		FirstName = firstName;
 		LastName = lastName;
 		HourlyRate = hourlyRate;
@@ -66,16 +73,37 @@ public class Employee
 		NumberOfHoursWorked += hoursWorked;
 	}
 
-	public double RecieveWage()
+	public double ReceiveWage()
 	{
 		Console.WriteLine($"The wage for {NumberOfHoursWorked} hours worked is {Wage}");
-		ResetNumberOfHoursWorkedAfterRecieveWage();
+		ResetNumberOfHoursWorkedAfterReceiveWage();
 
 		return Wage;
 	}
 
-	private void ResetNumberOfHoursWorkedAfterRecieveWage()
+	private void ResetNumberOfHoursWorkedAfterReceiveWage()
 	{
 		NumberOfHoursWorked = 0;
+	}
+
+	public void PerformWork()
+	{
+		this.PerformWork(0);
+	}
+
+	public void ReceiveCompliment()
+	{
+		Console.WriteLine($"You've done a great job, {FullName}");
+	}
+
+	public int CompareTo(object? obj)
+	{
+		var employee = (Employee)obj;
+		if (id > employee.Id)
+			return 1;
+		else if (id < employee.Id)
+			return -1;
+		else
+			return 0;
 	}
 }

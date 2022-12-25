@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 public class Manager : Employee
 {
-	public Manager(string firstName, string lastName, double hourlyRate) : base(firstName, lastName, hourlyRate)
+	public Manager(int id, string firstName, string lastName, double hourlyRate) : base(id, firstName, lastName, hourlyRate)
 	{
 	}
 
