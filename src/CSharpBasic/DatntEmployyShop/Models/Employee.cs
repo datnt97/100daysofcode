@@ -61,14 +61,14 @@ public class Employee
 		HourlyRate = hourlyRate;
 	}
 
-	public void PerformWork(int hoursWorked)
+	public virtual void PerformWork(int hoursWorked)
 	{
 		NumberOfHoursWorked += hoursWorked;
 	}
 
 	public double RecieveWage()
 	{
-		Console.WriteLine($"The wage for {NumberOfHoursWorked} is {Wage}");
+		Console.WriteLine($"The wage for {NumberOfHoursWorked} hours worked is {Wage}");
 		ResetNumberOfHoursWorkedAfterRecieveWage();
 
 		return Wage;
