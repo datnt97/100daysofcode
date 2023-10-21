@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{56D54F7E-CB41-415F-B78A-38F39C574E74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{94F009EE-8F34-42EE-A811-EE6507D63323}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolHRAdministration", "src\SchoolHRAdministration\SchoolHRAdministration.csproj", "{FE6BD82B-C010-41BB-B2F5-828C88F38F0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRAdministrationAPI", "src\HRAdministrationAPI\HRAdministrationAPI.csproj", "{2A07074B-A005-461A-A0BF-90E89D3C524F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE6BD82B-C010-41BB-B2F5-828C88F38F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6BD82B-C010-41BB-B2F5-828C88F38F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6BD82B-C010-41BB-B2F5-828C88F38F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6BD82B-C010-41BB-B2F5-828C88F38F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A07074B-A005-461A-A0BF-90E89D3C524F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A07074B-A005-461A-A0BF-90E89D3C524F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A07074B-A005-461A-A0BF-90E89D3C524F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A07074B-A005-461A-A0BF-90E89D3C524F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FE6BD82B-C010-41BB-B2F5-828C88F38F0B} = {56D54F7E-CB41-415F-B78A-38F39C574E74}
+		{2A07074B-A005-461A-A0BF-90E89D3C524F} = {56D54F7E-CB41-415F-B78A-38F39C574E74}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D088F259-E81B-455E-9E3D-56AE4DA49D4D}
+	EndGlobalSection
+EndGlobal
