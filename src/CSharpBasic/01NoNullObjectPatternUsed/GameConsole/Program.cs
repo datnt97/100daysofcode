@@ -1,5 +1,4 @@
-﻿using System;
-using GameConsole;
+﻿using GameConsole.Application.Models;
 
 var sarah = new PlayerCharacter(new DiamondSkinDefence())
 {
@@ -9,7 +8,7 @@ PlayerCharacter amrit = new(new IronBonesDefence())
 {
 	Name = "Amrit"
 };
-PlayerCharacter gentry = new(new NullDefence())
+PlayerCharacter gentry = new(SpecialDefenceBase.Null)
 {
 	Name = "Gentry"
 };
@@ -18,4 +17,4 @@ sarah.Hit(10);
 amrit.Hit(10);
 gentry.Hit(10);
 
-_ = Console.ReadLine();
+Console.ReadLine();

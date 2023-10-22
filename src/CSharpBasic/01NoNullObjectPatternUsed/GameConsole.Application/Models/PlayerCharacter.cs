@@ -1,8 +1,6 @@
-﻿using System;
+﻿namespace GameConsole.Application.Models;
 
-namespace GameConsole;
-
-class PlayerCharacter
+public class PlayerCharacter
 {
 	private readonly ISpecialDefence _specialDefence;
 
@@ -17,9 +15,9 @@ class PlayerCharacter
 
 	public void Hit(int damage)
 	{
-		int damageReduction = _specialDefence.CalculateDamageReduction();
+		var damageReduction = _specialDefence.CalculateDamageReduction();
 
-		int totalDamageTaken = Math.Abs(damage - damageReduction);
+		var totalDamageTaken = Math.Abs(damage - damageReduction);
 
 		Health -= totalDamageTaken;
 
