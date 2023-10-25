@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyClasses;
 
@@ -28,30 +29,32 @@ namespace MyClassesTest
 			Assert.IsFalse(fromCall);
 		}
 
-		//[TestMethod]
-		//[ExpectedException(typeof(ArgumentNullException))]
-		//public void FileNameNullOrEmpty_UsingAttribute()
-		//{
-		//    FileProcess fp = new FileProcess();
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void FileNameNullOrEmpty_UsingAttribute()
+		{
+			FileProcess fp = new FileProcess();
 
-		//    fp.FileExists("");
-		//}
+			fp.FileExists("");
+		}
 
-		//[TestMethod]
-		//public void FileNameNullOrEmpty_UsingTryCatch()
-		//{
-		//    FileProcess fp = new FileProcess();
+		[TestMethod]
+		public void FileNameNullOrEmpty_UsingTryCatch()
+		{
+			FileProcess fp = new FileProcess();
 
-		//    try {
-		//        fp.FileExists("");
-		//    }
-		//    catch (ArgumentNullException) {
-		//        // Test was a success
-		//        return;
-		//    }
+			try
+			{
+				fp.FileExists("");
+			}
+			catch (ArgumentNullException)
+			{
+				// Test was a success
+				return;
+			}
 
-		//    // Fail the test
-		//    Assert.Fail("Call to FileExists() did NOT throw an ArgumentNullException.");
-		//}
+			// Fail the test
+			Assert.Fail("Call to FileExists() did NOT throw an ArgumentNullException.");
+		}
 	}
 }
