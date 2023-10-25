@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MyClasses;
 
 namespace MyClassesTest
 {
@@ -8,26 +9,24 @@ namespace MyClassesTest
 		[TestMethod]
 		public void FileNameDoesExist()
 		{
-			//FileProcess fp = new FileProcess();
-			//bool fromCall;
+			FileProcess fp = new();
+			bool fromCall;
 
-			//fromCall = fp.FileExists(@"C:\Windows\Regedit.exe");
+			fromCall = fp.FileExists(@"C:\Windows\Regedit.exe");
 
-			//Assert.IsTrue(fromCall);
-
-			Assert.Inconclusive();
+			Assert.IsTrue(fromCall);
 		}
 
-		//[TestMethod]
-		//public void FileNameDoesNotExist()
-		//{
-		//    FileProcess fp = new FileProcess();
-		//    bool fromCall;
+		[TestMethod]
+		public void FileNameDoesNotExist()
+		{
+			FileProcess fp = new FileProcess();
+			bool fromCall;
 
-		//    fromCall = fp.FileExists(@"C:\Windows\Bogus.exe");
+			fromCall = fp.FileExists(@"C:\Windows\Bogus.exe");
 
-		//    Assert.IsFalse(fromCall);
-		//}
+			Assert.IsFalse(fromCall);
+		}
 
 		//[TestMethod]
 		//[ExpectedException(typeof(ArgumentNullException))]
