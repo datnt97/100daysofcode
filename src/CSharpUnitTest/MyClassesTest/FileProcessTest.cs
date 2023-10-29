@@ -24,7 +24,7 @@ namespace MyClassesTest
 		[TestMethod]
 		public void FileNameDoesNotExist()
 		{
-			FileProcess fp = new FileProcess();
+			FileProcess fp = new ();
 			bool fromCall;
 
 			fromCall = fp.FileExists(BAD_FILE_NAME);
@@ -36,19 +36,19 @@ namespace MyClassesTest
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void FileNameNullOrEmpty_UsingAttribute()
 		{
-			FileProcess fp = new FileProcess();
+			FileProcess fp = new();
 
-			fp.FileExists("");
+			_ = fp.FileExists("");
 		}
 
 		[TestMethod]
 		public void FileNameNullOrEmpty_UsingTryCatch()
 		{
-			FileProcess fp = new FileProcess();
+			FileProcess fp = new();
 
 			try
 			{
-				fp.FileExists("");
+				_ = fp.FileExists("");
 			}
 			catch (ArgumentNullException)
 			{
