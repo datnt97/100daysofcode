@@ -8,9 +8,23 @@ namespace MyClassesTest
 	[TestClass]
 	public class FileProcessTest
 	{
+		protected string _GoodFileName;
+
 		private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
 
 		public TestContext TestContext { get; set; }
+
+		protected void SetGoodFileName()
+		{
+			_GoodFileName = TestContext.Properties["GoodFileName"].ToString();
+
+			const string PrefixPath = "[AppPath]";
+			if (_GoodFileName.Contains(PrefixPath))
+			{
+				_GoodFileName = _GoodFileName.Replace(PrefixPath,
+					Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+			}
+		}
 
 		[TestMethod]
 		public void FileNameDoesExist()
@@ -18,9 +32,9 @@ namespace MyClassesTest
 			FileProcess fp = new();
 			bool fromCall;
 
-			TestContext.WriteLine("Checking File: @\"C:\\Windows\\Regedit.exe\"");
+			TestContext.WriteLine("Checking File: " + _GoodFileName);
 
-			fromCall = fp.FileExists(@"C:\Windows\Regedit.exe");
+			fromCall = fp.FileExists(_GoodFileName);
 
 			Assert.IsTrue(fromCall);
 		}
