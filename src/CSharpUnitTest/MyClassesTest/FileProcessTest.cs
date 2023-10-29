@@ -4,9 +4,12 @@ using MyClasses;
 
 namespace MyClassesTest
 {
+
 	[TestClass]
 	public class FileProcessTest
 	{
+		private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
+
 		[TestMethod]
 		public void FileNameDoesExist()
 		{
@@ -24,7 +27,7 @@ namespace MyClassesTest
 			FileProcess fp = new FileProcess();
 			bool fromCall;
 
-			fromCall = fp.FileExists(@"C:\Windows\Bogus.exe");
+			fromCall = fp.FileExists(BAD_FILE_NAME);
 
 			Assert.IsFalse(fromCall);
 		}
