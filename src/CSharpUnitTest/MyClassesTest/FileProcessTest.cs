@@ -10,11 +10,15 @@ namespace MyClassesTest
 	{
 		private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
 
+		public TestContext TestContext { get; set; }
+
 		[TestMethod]
 		public void FileNameDoesExist()
 		{
 			FileProcess fp = new();
 			bool fromCall;
+
+			TestContext.WriteLine("Checking File: @\"C:\\Windows\\Regedit.exe\"");
 
 			fromCall = fp.FileExists(@"C:\Windows\Regedit.exe");
 
